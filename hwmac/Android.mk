@@ -23,6 +23,10 @@ LOCAL_MODULE_TAGS := optional
 
 LOCAL_CFLAGS := -DLOG_TAG=\"HW_MAC\"
 
+ifeq ($(BOARD_HAS_ATH_WLAN),true)
+LOCAL_CFLAGS += -DATH_WLAN
+endif
+
 LOCAL_SRC_FILES := \
 	hwmac.c
 
