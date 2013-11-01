@@ -100,6 +100,13 @@ BOARD_UMS_LUNFILE := /sys/class/android_usb/android0/f_mass_storage/lun%d/file
 TARGET_RECOVERY_INITRC := device/huawei/msm7x27a-common/recovery/init.rc
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 
+# SELinux
+BOARD_SEPOLICY_DIRS += device/huawei/msm7x27a-common/sepolicy
+
+BOARD_SEPOLICY_UNION += \
+    file_contexts \
+    file.te
+
 # USB
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 BOARD_VOLD_MAX_PARTITIONS := 19
