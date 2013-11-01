@@ -70,6 +70,13 @@ PRODUCT_COPY_FILES += \
     device/huawei/msm7x27a-common/configs/media_codecs.xml:system/etc/media_codecs.xml \
     device/huawei/msm7x27a-common/configs/media_profiles.xml:system/etc/media_profiles.xml
 
+PRODUCT_COPY_FILES += \
+    device/huawei/msm7x27a-common/idc/qwerty.idc:system/usr/idc/qwerty.idc \
+    device/huawei/msm7x27a-common/idc/qwerty2.idc:system/usr/idc/qwerty2.idc \
+    device/huawei/msm7x27a-common/keychars/7x27a_kp.kcm:system/usr/keychars/7x27a_kp.kcm \
+    device/huawei/msm7x27a-common/keylayout/7x27a_kp.kl:system/usr/keylayout/7x27a_kp.kl \
+    device/huawei/msm7x27a-common/keylayout/surf_keypad.kl:system/usr/keylayout/surf_keypad.kl
+
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
