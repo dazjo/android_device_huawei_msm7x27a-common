@@ -90,7 +90,10 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 TARGET_USERIMAGES_USE_EXT4 := true
 
 # Recovery
+BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/huawei/msm7x27a-common/recovery/recovery-keys.c
 BOARD_UMS_LUNFILE := /sys/class/android_usb/android0/f_mass_storage/lun%d/file
+TARGET_RECOVERY_INITRC := device/huawei/msm7x27a-common/recovery/init.rc
+TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 
 # USB
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
