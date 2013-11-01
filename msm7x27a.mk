@@ -59,6 +59,11 @@ PRODUCT_PACKAGES += \
 
 # Files
 PRODUCT_COPY_FILES += \
+    device/huawei/msm7x27a-common/rootdir/init.huawei.rc:root/init.huawei.rc \
+    device/huawei/msm7x27a-common/rootdir/init.huawei.usb.rc:root/init.huawei.usb.rc \
+    device/huawei/msm7x27a-common/rootdir/ueventd.huawei.rc:root/ueventd.huawei.rc
+
+PRODUCT_COPY_FILES += \
     device/huawei/msm7x27a-common/configs/qosmgr_rules.xml:system/etc/qosmgr_rules.xml
 
 PRODUCT_COPY_FILES += \
