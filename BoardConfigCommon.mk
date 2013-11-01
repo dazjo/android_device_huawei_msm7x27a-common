@@ -28,6 +28,8 @@ USE_CAMERA_STUB := true
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
+TARGET_SPECIFIC_HEADER_PATH := device/huawei/msm7x27a-common/include
+
 # Architecture and CPU
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
