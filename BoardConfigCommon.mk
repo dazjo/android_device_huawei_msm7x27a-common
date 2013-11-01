@@ -73,6 +73,9 @@ BOARD_EGL_CFG := device/huawei/msm7x27a-common/configs/egl.cfg
 TARGET_QCOM_DISPLAY_VARIANT := legacy
 USE_OPENGL_RENDERER := true
 
+# Hardware
+BOARD_HARDWARE_CLASS := device/huawei/msm7x27a-common/cmhw
+
 # Kernel
 BOARD_KERNEL_BASE := 0x00200000
 BOARD_KERNEL_CMDLINE := androidboot.hardware=huawei
