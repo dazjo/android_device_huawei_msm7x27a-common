@@ -79,6 +79,9 @@ BOARD_KERNEL_CMDLINE := androidboot.hardware=huawei
 BOARD_PAGE_SIZE := 2048
 TARGET_KERNEL_SOURCE := kernel/huawei/huawei-kernel-3.4
 
+# Lights
+TARGET_PROVIDES_LIBLIGHTS := true
+
 # Media
 TARGET_QCOM_LEGACY_OMX := true
 TARGET_QCOM_MEDIA_VARIANT := legacy
