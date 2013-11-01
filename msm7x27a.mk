@@ -57,6 +57,19 @@ PRODUCT_PACKAGES += \
     make_ext4fs \
     setup_fs
 
+# Files
+PRODUCT_COPY_FILES += \
+    device/huawei/msm7x27a-common/configs/qosmgr_rules.xml:system/etc/qosmgr_rules.xml
+
+PRODUCT_COPY_FILES += \
+    device/huawei/msm7x27a-common/configs/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
+    device/huawei/msm7x27a-common/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+
+PRODUCT_COPY_FILES += \
+    device/huawei/msm7x27a-common/configs/audio_policy.conf:system/etc/audio_policy.conf \
+    device/huawei/msm7x27a-common/configs/media_codecs.xml:system/etc/media_codecs.xml \
+    device/huawei/msm7x27a-common/configs/media_profiles.xml:system/etc/media_profiles.xml
+
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
