@@ -131,6 +131,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=240
 
 PRODUCT_PROPERTY_OVERRIDES += \
+    ro.config.low_ram=true \
     sys.mem.max_hidden_apps=10
 
 PRODUCT_PROPERTY_OVERRIDES += \
