@@ -33,6 +33,8 @@ on init
     mkdir /cust
 
     mkdir /storage 0775 system sdcard_r
+    mkdir /mnt/media_rw/sdcard0 0700 media_rw media_rw
+    mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
     mkdir /storage/sdcard1 0000 system system
     mkdir /storage/sdcard0 0000 system system
 
@@ -233,6 +235,14 @@ service iprenew_p2p /system/bin/dhcpcd -n p2p
     class main
     disabled
     oneshot
+
+service fuse_sdcard0 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard0 /storage/sdcard0
+    class late_start
+    disabled
+
+service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard1 /storage/sdcard1
+    class late_start
+    disabled
 
 service qcamerasvr /system/bin/mm-qcamera-daemon
     class late_start
