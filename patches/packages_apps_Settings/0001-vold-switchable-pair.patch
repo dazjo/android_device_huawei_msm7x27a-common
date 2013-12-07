@@ -1,4 +1,4 @@
-From 0df41ff53052e65d938fa17761e6257ebea21892 Mon Sep 17 00:00:00 2001
+From a6fe7d0a6eb258899457011c0186164eba1ada46 Mon Sep 17 00:00:00 2001
 From: dhacker29 <davidhackerdvm@gmail.com>
 Date: Sat, 17 Aug 2013 16:35:18 -0500
 Subject: [PATCH] Add setting for Vold Switchable Pair (2/2)
@@ -17,24 +17,24 @@ Change-Id: Id83fc90d771ca3a7179f2c50d0ae828eb3dbaa9f
  4 files changed, 66 insertions(+), 1 deletion(-)
 
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index 58f1da4..6a35018 100644
+index 4b3b859..3167c37 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
-@@ -66,6 +66,7 @@
-     <uses-permission android:name="android.permission.SET_TIME" />
-     <uses-permission android:name="android.permission.ACCESS_NOTIFICATIONS" />
+@@ -69,6 +69,7 @@
+     <uses-permission android:name="android.permission.MANAGE_DEVICE_ADMINS" />
+     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
      <uses-permission android:name="android.permission.CHANGE_PRIVACY_GUARD_STATE" />
 +    <uses-permission android:name="android.permission.REBOOT" />
  
      <permission
          android:name="android.permission.REQUEST_SUPERUSER"
 diff --git a/res/values/cm_strings.xml b/res/values/cm_strings.xml
-index c2c2c30..39dab44 100644
+index 6fa1504..1867762 100644
 --- a/res/values/cm_strings.xml
 +++ b/res/values/cm_strings.xml
-@@ -623,6 +623,13 @@
-     <string name="storage_rescan_media">Rescan media for the storage volume</string>
-     <string name="storage_rescan_media_complete">Scan completed</string>
+@@ -611,6 +611,13 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
+     <string name="adb_notify">USB debugging notify</string>
+     <string name="adb_notify_summary">Display a notification when USB debugging is connected</string>
  
 +    <!-- Vold Switchable Pair -->
 +    <string name="storage_switch_title">Use external SD as primary</string>
@@ -63,10 +63,10 @@ index e905f39..2010b2c 100644
  <!-- Preference categories are dynamically created based on the list of available storage volumes -->
  
 diff --git a/src/com/android/settings/deviceinfo/Memory.java b/src/com/android/settings/deviceinfo/Memory.java
-index 79216fc..d6ae78f 100644
+index 999611d..92d9863 100644
 --- a/src/com/android/settings/deviceinfo/Memory.java
 +++ b/src/com/android/settings/deviceinfo/Memory.java
-@@ -31,16 +31,20 @@ import android.hardware.usb.UsbManager;
+@@ -32,16 +32,20 @@ import android.hardware.usb.UsbManager;
  import android.os.Bundle;
  import android.os.Environment;
  import android.os.IBinder;
@@ -87,7 +87,7 @@ index 79216fc..d6ae78f 100644
  import android.util.Log;
  import android.view.Menu;
  import android.view.MenuInflater;
-@@ -79,6 +83,10 @@ public class Memory extends SettingsPreferenceFragment {
+@@ -80,6 +84,10 @@ public class Memory extends SettingsPreferenceFragment {
      private UsbManager mUsbManager;
  
      private ArrayList<StorageVolumePreferenceCategory> mCategories = Lists.newArrayList();
@@ -98,7 +98,7 @@ index 79216fc..d6ae78f 100644
  
      @Override
      public void onCreate(Bundle icicle) {
-@@ -93,6 +101,27 @@ public class Memory extends SettingsPreferenceFragment {
+@@ -94,6 +102,27 @@ public class Memory extends SettingsPreferenceFragment {
  
          addPreferencesFromResource(R.xml.device_info_memory);
  
@@ -112,7 +112,7 @@ index 79216fc..d6ae78f 100644
 +            if (!TextUtils.isEmpty(PRIMARY_STORAGE) && !TextUtils.isEmpty(SECONDARY_STORAGE)) {
 +                SystemProperties.set(VOLD_SWITCHABLEPAIR_PROP, PRIMARY_STORAGE + ',' +
 +                        SECONDARY_STORAGE);
-+                Log.i(TAG, "Setting persist.sys.vold.swichablepair=" + PRIMARY_STORAGE + ',' +
++                Log.i(TAG, "Setting persist.sys.vold.switchablepair=" + PRIMARY_STORAGE + ',' +
 +                        SECONDARY_STORAGE);
 +            } else {
 +                Log.i(TAG, "Vold switch not possible on this device.");
@@ -126,7 +126,7 @@ index 79216fc..d6ae78f 100644
          addCategory(StorageVolumePreferenceCategory.buildForInternal(context));
  
          final StorageVolume[] storageVolumes = mStorageManager.getVolumeList();
-@@ -211,7 +240,13 @@ public class Memory extends SettingsPreferenceFragment {
+@@ -214,7 +243,13 @@ public class Memory extends SettingsPreferenceFragment {
  
      @Override
      public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
@@ -141,7 +141,7 @@ index 79216fc..d6ae78f 100644
              ConfirmClearCacheFragment.show(this);
              return true;
          }
-@@ -417,4 +452,21 @@ public class Memory extends SettingsPreferenceFragment {
+@@ -424,4 +459,21 @@ public class Memory extends SettingsPreferenceFragment {
              return builder.create();
          }
      }
