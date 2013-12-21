@@ -151,6 +151,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vold.umsdirtyratio=50
 
 PRODUCT_PROPERTY_OVERRIDES += \
+    persist.webview.provider=classic
+
+PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=eth0 \
     wifi.supplicant_scan_interval=60
 
