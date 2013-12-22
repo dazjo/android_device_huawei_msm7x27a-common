@@ -200,7 +200,7 @@ service netmgrd /system/bin/netmgrd
     class main
 
 service oem_rpc_svc /system/bin/oem_rpc_svc
-    class core
+    class main
 
 service qmuxd /system/bin/qmuxd
     class main
