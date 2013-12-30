@@ -1,4 +1,4 @@
-From 22409f51bfea9640a8909b0f4e2a9b9cf838727c Mon Sep 17 00:00:00 2001
+From ee738227a4256b177af0ac464ed205b732b7e7d1 Mon Sep 17 00:00:00 2001
 From: Daz Jones <yuki@thebronasium.com>
 Date: Thu, 12 Dec 2013 09:35:50 +0000
 Subject: [PATCH] legacy OMX: allow building ExtendedMediaDefs for mmparser
@@ -6,24 +6,27 @@ Subject: [PATCH] legacy OMX: allow building ExtendedMediaDefs for mmparser
 
 Change-Id: I50052ee47dcd3272971b9822f73d47ebdbe08d5e
 ---
- media/libstagefright/Android.mk | 4 ++++
- 1 file changed, 4 insertions(+)
+ media/libstagefright/Android.mk | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
 diff --git a/media/libstagefright/Android.mk b/media/libstagefright/Android.mk
-index c0455da..804bbb9 100644
+index d64ccbf..e1dbf78 100644
 --- a/media/libstagefright/Android.mk
 +++ b/media/libstagefright/Android.mk
-@@ -163,6 +163,10 @@ endif #TARGET_ENABLE_AV_ENHANCEMENTS
+@@ -167,7 +167,12 @@ ifeq ($(TARGET_ENABLE_QC_AV_ENHANCEMENTS),true)
+ endif #TARGET_ENABLE_AV_ENHANCEMENTS
  
  ifeq ($(TARGET_QCOM_LEGACY_OMX),true)
-     LOCAL_CFLAGS += -DQCOM_LEGACY_OMX
+-    LOCAL_CFLAGS += -DQCOM_LEGACY_OMX -DQCOM_LEGACY_MMPARSER
++    LOCAL_CFLAGS += -DQCOM_LEGACY_OMX
 +    TARGET_QCOM_LEGACY_MMPARSER := true
 +endif
 +
 +ifeq ($(TARGET_QCOM_LEGACY_MMPARSER),true)
-     LOCAL_CFLAGS += -DQCOM_LEGACY_MMPARSER
++    LOCAL_CFLAGS += -DQCOM_LEGACY_MMPARSER
      LOCAL_SRC_FILES += ExtendedMediaDefs.cpp
  endif
+ 
 -- 
 1.8.1.2
 
