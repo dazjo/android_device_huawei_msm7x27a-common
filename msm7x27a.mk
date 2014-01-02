@@ -120,7 +120,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapgrowthlimit=32m \
     dalvik.vm.heapsize=96m \
-    dalvik.vm.heapstartsize=5m
+    ro.config.low_ram=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.composition.type=dyn \
@@ -129,10 +129,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.max.fling_velocity=4000 \
     ro.opengles.version=131072 \
     ro.sf.lcd_density=240
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.config.low_ram=true \
-    sys.mem.max_hidden_apps=10
 
 PRODUCT_PROPERTY_OVERRIDES += \
     com.qc.hardware=true \
