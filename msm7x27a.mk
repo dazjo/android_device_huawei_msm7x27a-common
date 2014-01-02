@@ -118,17 +118,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.cwm.enable_key_repeat=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.heapgrowthlimit=32m \
-    dalvik.vm.heapsize=96m \
-    ro.config.low_ram=true
-
-PRODUCT_PROPERTY_OVERRIDES += \
     debug.composition.type=dyn \
     debug.hwc.dynThreshold=1.9 \
     ro.bq.gpu_to_cpu_unsupported=1 \
     ro.max.fling_velocity=4000 \
     ro.opengles.version=131072 \
     ro.sf.lcd_density=240
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.heapgrowthlimit=32m \
+    dalvik.vm.heapsize=96m \
+    dalvik.vm.jit.codecachesize=0 \
+    ro.config.low_ram=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
     com.qc.hardware=true \
