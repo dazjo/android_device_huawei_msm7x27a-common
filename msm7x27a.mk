@@ -128,7 +128,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapgrowthlimit=32m \
     dalvik.vm.heapsize=96m \
-    dalvik.vm.jit.codecachesize=0 \
     ro.config.low_ram=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
