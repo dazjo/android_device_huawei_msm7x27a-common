@@ -109,7 +109,7 @@ static void handle_wlan_mac(void)
 	if (!property_get(WIFI_MAC_PROPERTY, wlan_mac_address, NULL)) {
 		get_wlan_mac(wlanmac);
 
-		sprintf(wlan_mac_address, "%.2X:%.2X:%.2X:%.2X:%.2X:%.2X",
+		sprintf(wlan_mac_address, "%02X:%02X:%02X:%02X:%02X:%02X",
 			wlanmac[0], wlanmac[1], wlanmac[2],
 			wlanmac[3], wlanmac[4], wlanmac[5]);
 
@@ -149,7 +149,7 @@ static void handle_bt_mac(void)
 		get_bt_mac(btmac);
 
 		snprintf(bt_mac_address, MAC_STRING_SIZE,
-			"%.2X:%.2X:%.2X:%.2X:%.2X:%.2X",
+			"%02X:%02X:%02X:%02X:%02X:%02X",
 			btmac[0], btmac[1], btmac[2],
 			btmac[3], btmac[4], btmac[5]);
 
