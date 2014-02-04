@@ -133,6 +133,7 @@ on boot
     write /sys/devices/platform/msm_sdcc.1/idle_timeout 10
     write /sys/module/lowmemorykiller/parameters/adj 0,1,2,4,9,12
     write /proc/sys/vm/min_free_kbytes 5120
+    write /proc/sys/vm/page-cluster 0
 
     write /sys/module/pm2/modes/cpu0/standalone_power_collapse/idle_enabled 1
     write /sys/module/pm2/modes/cpu1/standalone_power_collapse/idle_enabled 1
@@ -144,6 +145,7 @@ on boot
 on emmc-fs
     # mount mmc partitions
     mount_all /fstab.huawei
+    swapon_all /fstab.huawei
 
 # msm specific files that need to be created on /data
 on post-fs-data
