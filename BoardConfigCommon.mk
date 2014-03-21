@@ -86,7 +86,6 @@ TARGET_KERNEL_SOURCE := kernel/huawei/huawei-kernel-3.4
 TARGET_PROVIDES_LIBLIGHTS := true
 
 # Media
-TARGET_QCOM_LEGACY_OMX := true
 TARGET_QCOM_MEDIA_VARIANT := legacy
 
 # Partitions
