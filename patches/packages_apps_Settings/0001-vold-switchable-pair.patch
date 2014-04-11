@@ -1,4 +1,4 @@
-From a6fe7d0a6eb258899457011c0186164eba1ada46 Mon Sep 17 00:00:00 2001
+From d95a76e3556eaf5eabdfd43f9f0230373e188f18 Mon Sep 17 00:00:00 2001
 From: dhacker29 <davidhackerdvm@gmail.com>
 Date: Sat, 17 Aug 2013 16:35:18 -0500
 Subject: [PATCH] Add setting for Vold Switchable Pair (2/2)
@@ -17,22 +17,22 @@ Change-Id: Id83fc90d771ca3a7179f2c50d0ae828eb3dbaa9f
  4 files changed, 66 insertions(+), 1 deletion(-)
 
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index 4b3b859..3167c37 100644
+index 5825e8e..5993e07 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
-@@ -69,6 +69,7 @@
-     <uses-permission android:name="android.permission.MANAGE_DEVICE_ADMINS" />
-     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+@@ -72,6 +72,7 @@
      <uses-permission android:name="android.permission.CHANGE_PRIVACY_GUARD_STATE" />
+     <uses-permission android:name="android.permission.READ_PHONE_BLACKLIST" />
+     <uses-permission android:name="android.permission.CHANGE_PHONE_BLACKLIST" />
 +    <uses-permission android:name="android.permission.REBOOT" />
  
      <permission
          android:name="android.permission.REQUEST_SUPERUSER"
 diff --git a/res/values/cm_strings.xml b/res/values/cm_strings.xml
-index 6fa1504..1867762 100644
+index ed81926..6667e5a 100644
 --- a/res/values/cm_strings.xml
 +++ b/res/values/cm_strings.xml
-@@ -611,6 +611,13 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
+@@ -700,6 +700,13 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
      <string name="adb_notify">USB debugging notify</string>
      <string name="adb_notify_summary">Display a notification when USB debugging is connected</string>
  
@@ -63,7 +63,7 @@ index e905f39..2010b2c 100644
  <!-- Preference categories are dynamically created based on the list of available storage volumes -->
  
 diff --git a/src/com/android/settings/deviceinfo/Memory.java b/src/com/android/settings/deviceinfo/Memory.java
-index 999611d..92d9863 100644
+index 52fef32..5b79865 100644
 --- a/src/com/android/settings/deviceinfo/Memory.java
 +++ b/src/com/android/settings/deviceinfo/Memory.java
 @@ -32,16 +32,20 @@ import android.hardware.usb.UsbManager;
@@ -126,7 +126,7 @@ index 999611d..92d9863 100644
          addCategory(StorageVolumePreferenceCategory.buildForInternal(context));
  
          final StorageVolume[] storageVolumes = mStorageManager.getVolumeList();
-@@ -214,7 +243,13 @@ public class Memory extends SettingsPreferenceFragment {
+@@ -213,7 +242,13 @@ public class Memory extends SettingsPreferenceFragment {
  
      @Override
      public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
@@ -141,7 +141,7 @@ index 999611d..92d9863 100644
              ConfirmClearCacheFragment.show(this);
              return true;
          }
-@@ -424,4 +459,21 @@ public class Memory extends SettingsPreferenceFragment {
+@@ -423,4 +458,21 @@ public class Memory extends SettingsPreferenceFragment {
              return builder.create();
          }
      }
