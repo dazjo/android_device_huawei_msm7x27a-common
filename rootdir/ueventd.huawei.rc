@@ -49,7 +49,7 @@
 
 #enable radio program access msm_voicememo
 /dev/msm_voicememo        0666  system     audio
-/dev/radio0               0666  system     audio
+/dev/radio0               0640  system     system
 
 /dev/qseecom              0660  system     drmrpc
 
