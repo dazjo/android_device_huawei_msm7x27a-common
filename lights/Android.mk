@@ -27,4 +27,4 @@ LOCAL_SHARED_LIBRARIES := libhardware_legacy liblog
 
 LOCAL_MODULE := lights.$(TARGET_BOARD_PLATFORM)
 
-include $(BUILD_SHARED_LIBRARY)
+#include $(BUILD_SHARED_LIBRARY)
