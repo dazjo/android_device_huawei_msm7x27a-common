@@ -1,0 +1,25 @@
+From 31a226a568cb461c4911ccea850351544d9c98e5 Mon Sep 17 00:00:00 2001
+From: fonz93 <fonz993@hotmail.it>
+Date: Sat, 2 Aug 2014 00:38:32 +0200
+Subject: [PATCH] Hack for "no network" bug
+
+---
+ .../src/com/android/systemui/statusbar/policy/NetworkController.java    | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/packages/SystemUI/src/com/android/systemui/statusbar/policy/NetworkController.java b/packages/SystemUI/src/com/android/systemui/statusbar/policy/NetworkController.java
+index 70105fe..64854f0 100644
+--- a/packages/SystemUI/src/com/android/systemui/statusbar/policy/NetworkController.java
++++ b/packages/SystemUI/src/com/android/systemui/statusbar/policy/NetworkController.java
+@@ -1178,6 +1178,8 @@ public class NetworkController extends BroadcastReceiver implements DemoMode {
+                     // Tablets, basically
+                     mobileLabel = "";
+                 }
++            } else if (hasService() || emergencyOnly) {
++                    mobileLabel = mNetworkName;
+             } else {
+                 mobileLabel
+                     = mContext.getString(R.string.status_bar_settings_signal_meter_disconnected);
+-- 
+1.9.1
+
