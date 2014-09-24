@@ -126,8 +126,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=240
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.heapgrowthlimit=32m \
-    dalvik.vm.heapsize=96m \
+    dalvik.vm.heapgrowthlimit=48m \
+    dalvik.vm.heapsize=128m \
     ro.config.low_ram=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
