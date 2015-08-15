@@ -152,5 +152,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=eth0 \
     wifi.supplicant_scan_interval=60
+    
+# Voip
+PRODUCT_PROPERTY_OVERRIDES += \
+    lpa.decode=false
+    tunnel.decode=false
+    lpa.use-stagefright=false
+    lpa.releaselock=false
 
 $(call inherit-product, vendor/huawei/msm7x27a-common/msm7x27a-common-vendor.mk)
